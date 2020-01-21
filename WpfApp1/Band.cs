@@ -15,7 +15,10 @@ namespace WpfApp1
 
 
 
+        public Band()
+        {
 
+        }
 
 
 
