@@ -21,30 +21,27 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
 
-        List<Band> AllBands; 
+        
 
         public MainWindow()
         {
             InitializeComponent();
+
+            
+
+
+            
         }
 
-
-        private List<Band> GetBands()
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
+            //List<Band> = new rockband 
+            RockBand rb = new RockBand();
 
-
-            List<Band> AllBands = new List<Band>();
-
-            Band B1 = new Band()
-            {
-                BandName = ""
-            }
-
-        }
-        
 
 
 
+        }
     }
 }

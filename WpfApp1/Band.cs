@@ -6,23 +6,28 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    class Band
+    public abstract class Band
     {
 
-        public string BandName {get; set;}
+
+        public string BandName { get; set; }
         public int YearFormed { get; set; }
         public string Members { get; set; }
 
 
 
-        public Band()
-        {
-
-        }
 
 
 
 
+
+
+
+    }
+
+
+    public class RockBand : Band
+    {
 
 
     }
