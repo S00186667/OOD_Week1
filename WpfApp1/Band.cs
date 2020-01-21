@@ -17,7 +17,10 @@ namespace WpfApp1
 
 
 
-
+        public override string ToString()
+        {
+            return string.Format("{0}", BandName); 
+        }
 
 
 
@@ -25,10 +28,20 @@ namespace WpfApp1
 
     }
 
+    
 
     public class RockBand : Band
     {
 
+
+    }
+    public class IndieBand : Band
+    {
+
+    }
+
+    public class PopBand : Band
+    {
 
     }
 }
