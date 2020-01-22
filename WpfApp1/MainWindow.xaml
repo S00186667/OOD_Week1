@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <ListBox x:Name="lbxBands" HorizontalAlignment="Left" Height="251" Margin="60,124,0,0" VerticalAlignment="Top" Width="199"/>
+        <ListBox x:Name="lbxBands" HorizontalAlignment="Left" Height="251" Margin="60,124,0,0" VerticalAlignment="Top" Width="199" SelectionChanged="lbxBands_SelectionChanged"/>
         <TextBox HorizontalAlignment="Left" Height="42" Margin="60,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="Bands" FontSize="25"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="60,83,0,0" TextWrapping="Wrap" Text="Genre" VerticalAlignment="Top" Width="52" FontSize="15" FontWeight="Bold"/>
         <ComboBox HorizontalAlignment="Left" Margin="139,83,0,0" VerticalAlignment="Top" Width="120"/>
-        <ListBox HorizontalAlignment="Left" Height="100" Margin="422,275,0,0" VerticalAlignment="Top" Width="211"/>
-        <TextBox HorizontalAlignment="Left" Height="31" Margin="422,229,0,0" TextWrapping="Wrap" Text="Albums" VerticalAlignment="Top" Width="120" AutomationProperties.IsRowHeader="True" FontSize="20" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="42" Margin="422,10,0,0" TextWrapping="Wrap" Text="Band Information" VerticalAlignment="Top" Width="211" FontSize="25"/>
-        <ListBox HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="211" Margin="422,83,0,0"/>
+        <ListBox HorizontalAlignment="Left" Height="100" Margin="339,275,0,0" VerticalAlignment="Top" Width="294"/>
+        <TextBox HorizontalAlignment="Left" Height="31" Margin="339,239,0,0" TextWrapping="Wrap" Text="Albums" VerticalAlignment="Top" Width="120" AutomationProperties.IsRowHeader="True" FontSize="20" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Height="42" Margin="339,24,0,0" TextWrapping="Wrap" Text="Band Information" VerticalAlignment="Top" Width="211" FontSize="25"/>
+        <TextBlock x:Name="txtblkmembers" HorizontalAlignment="Left" Margin="339,66,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="294" Height="163"/>
 
     </Grid>
 </Window>

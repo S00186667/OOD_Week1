@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    public abstract class Band
+    public abstract class Band : IComparable
     {
 
 
         public string BandName { get; set; }
-        public int YearFormed { get; set; }
+        public string YearFormed { get; set; }
         public string Members { get; set; }
 
-
-
+        public int CompareTo(object obj)
+        {
+            Band that = obj as Band;
+            return this.BandName.CompareTo(that.BandName); 
+        }
 
         public override string ToString()
         {
