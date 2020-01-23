@@ -21,22 +21,22 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
 
-        
+
+        //lists
+        List<Band> FliterBands;
+        List<Band> AllBands; 
 
         public MainWindow()
         {
             InitializeComponent();
-
-            
-
-
-            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-            List<Band> AllBands = new List<Band>(); 
+            AllBands = new List<Band>();
+            FliterBands = new List<Band>();
+           
 
             //List<Band> = new rockband 
             RockBand rb1 = new RockBand() { BandName = "Led Zeppelin", YearFormed = "1968", Members = "Robert Plant, John Bonham, Jimmy Page, John Paul Jones" };
@@ -57,22 +57,112 @@ namespace WpfApp1
             AllBands.Add(P1);
             AllBands.Add(P2);
 
-
+            AllBands.Sort();
             lbxBands.ItemsSource = AllBands;
 
 
-        }
+            //combo box info
+            cbxgenre.ItemsSource = new string [] { "Rock", "Pop", "Indie" };
+            cbxgenre.SelectedIndex = 0;
 
-        private void lbxBands_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Band selectedband = lbxBands.SelectedItem as Band; 
-            if(selectedband != null)
-            {
-                txtblkmembers.Text = selectedband.Members; 
-               
-            }
+
+
+            //Album Info 
+            Album AR1 = new Album() { AlbumName = "Led Zeppelin IV", AlbumYear = 1969, AlbumMembers = "All Members" };
+            Album AR2 = new Album() { AlbumName = "Some Girls", AlbumYear = 1978, AlbumMembers = "all" };
+            Album AI1 = new Album() { AlbumName = "Whatever people say I am thats what I am not", AlbumYear = 2006, AlbumMembers = "all" };
           
 
         }
+
+
+  
+
+        private void lbxBands_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Band selectedband = lbxBands.SelectedItem as Band;
+
+            txtblkmembers.Text = "Members" + selectedband.Members;
+          txtblkformed.Text = "Formed" + selectedband.YearFormed; 
+          
+           
+          
+
+        }
+
+        private void Cbxgenre_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            ComboBox selectedB = sender as ComboBox;
+            string flitering = selectedB.Text as string; 
+
+
+
+        }
+
+        private void Fliter(string flitering)
+        {
+
+
+            Band[] fliteredbands = new Band[2];
+            int counter = 0; 
+            switch(flitering)
+            {
+                case "Rock":
+                    foreach(Band Cband in AllBands)
+                    {
+                        if(Cband.GetType().Name == "RockBand")
+                        {
+                            fliteredbands[counter] = Cband;
+                            counter++; 
+                        }
+                    }
+                    lbxBands.ItemsSource = fliteredbands;
+                    break;
+
+                case "Pop":
+                    foreach(Band Cband in AllBands)
+                    {
+                        if(Cband.GetType().Name == "PopBand")
+                        {
+                            fliteredbands[counter] = Cband;
+                            counter++; 
+                        }
+                    }
+                    lbxBands.ItemsSource = fliteredbands;
+                    break;
+
+                case "Indie":
+                    foreach(Band Cband in AllBands)
+                    {
+                        if(Cband.GetType().Name == "IndeBand")
+                        {
+                            fliteredbands[counter] = Cband;
+                            counter++; 
+                        }
+                    }
+                    lbxBands.ItemsSource = fliteredbands;
+                    break; 
+
+                    
+            }
+           
+        
+        }
+
+            
+            
+        
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Band selection = lbxBands.SelectedItem as Band; 
+            if(selection != null)
+            {
+               
+            }
+        }
+
+       
     }
 }

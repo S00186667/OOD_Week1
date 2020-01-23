@@ -16,17 +16,22 @@ namespace WpfApp1
 
         public int CompareTo(object obj)
         {
-            Band that = obj as Band;
-            return this.BandName.CompareTo(that.BandName); 
+            if (obj == null) return 1;
+            Band otherband = obj as Band;
+            if (otherband != null)
+            {
+                return this.BandName.CompareTo(otherband.BandName);
+            }
+            else
+            {
+                throw new ArgumentException("this isnt a band"); 
+            }
         }
 
         public override string ToString()
         {
-            return string.Format("{0}", BandName); 
+            return string.Format($"{BandName} - {this.GetType().Name}"); 
         }
-
-
-
 
 
     }
@@ -35,7 +40,7 @@ namespace WpfApp1
 
     public class RockBand : Band
     {
-
+        
 
     }
     public class IndieBand : Band
